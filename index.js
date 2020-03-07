@@ -1,3 +1,12 @@
+// ==UserScript==
+// @name         New Userscript
+// @namespace    http://tampermonkey.net/
+// @version      0.1
+// @description  try to take over the world!
+// @author       You
+// @match        https://studyh5.zhihuishu.com/videoStudy.html*
+// @grant        none
+// ==/UserScript==
 (function() {
     // 'use strict';
     var currentTime = ''
@@ -24,16 +33,16 @@
                 }
             }
         }
-        if(flag || progress.length < 1) return 
+        if(flag || progress.length < 1) return
         var proValue = progress[0].innerText
         proV.innerText = '进度：' + proValue
         if(/^(\d*)%$/.exec(proValue)[1] > 80){
             document.getElementById('nextBtn').click()
         }
-        
+
         if(playButton.className == 'playButton')
             playButton.click()
-        
+
     }
     var box = document.createElement('div')
     box.id = 'toolBox'
@@ -57,3 +66,4 @@
     var inter = setInterval(func, 1000)
     // Your code here...
 })();
+
